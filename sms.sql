@@ -12,17 +12,16 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- 导出  表 sms.sms 结构
-DROP TABLE IF EXISTS `sms`;
 CREATE TABLE IF NOT EXISTS `sms` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `mobile` char(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `receive_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `type` char(1) NOT NULL DEFAULT '0',
   `content` text NOT NULL,
   `md5` char(32) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `md5` (`md5`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- 数据导出被取消选择。
 
