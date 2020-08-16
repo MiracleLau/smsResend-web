@@ -15,7 +15,7 @@
 CREATE TABLE IF NOT EXISTS `sms` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `mobile` char(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `receive_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `type` char(1) NOT NULL DEFAULT '0',
   `content` text NOT NULL,
   `md5` char(32) NOT NULL DEFAULT '0',

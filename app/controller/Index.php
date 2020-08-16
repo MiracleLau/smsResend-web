@@ -7,7 +7,12 @@ class Index extends BaseController
 {
     public function index()
     {
-        return "Ok";
+        $pwd = request()->get("pwd");
+        if($pwd== config('app.api_pwd')) {
+            $sms = Sms::order('id', 'desc')->select();
+            return json($sms);
+        }
+        
     }
 
     public function uploadMsg()
