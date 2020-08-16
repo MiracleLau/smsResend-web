@@ -10,4 +10,4 @@
 // +----------------------------------------------------------------------
 use think\facade\Route;
 
-Route::post('saveMsg', 'index/uploadMsg');
+Route::rule('saveMsg', 'index/uploadMsg');
