@@ -3,6 +3,8 @@ namespace app\controller;
 
 use app\BaseController;
 use app\model\Sms;
+use GuzzleHttp\Client;
+
 class Index extends BaseController
 {
     public function index()
@@ -30,6 +32,17 @@ class Index extends BaseController
                         $sms = new Sms;
                         $data["md5"] = $md5;
                         $sms->save($data);
+                        $d = [
+                            "at" => ["isAtAll"=>false],
+                            "text" => ["content"=>"发信人：".$data["mobile"]."\n短信内容：\n".$data["content"]],
+                            "msgtype" => "text"
+                        ];
+                        // 不管发送成不成功
+                        $client = new Client([]);
+                        @$client->request("POST",config("app.dingtalk_webhook"),[
+                            'verify' => false,
+                            'json'   => $d
+                        ]);
                         return get_result(0, "保存成功");
                     } else {
                         return get_result(1, "短信已存在");

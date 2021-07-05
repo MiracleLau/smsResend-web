@@ -28,6 +28,8 @@ return [
     // 错误显示信息,非调试模式有效
     'error_message'    => '页面错误！请稍后再试～',
     // 显示错误信息
-    'show_error_msg'   => false,
-    'api_pwd' => '123456'
+    'show_error_msg'   => true,
+    'api_pwd' => '123456',
+    // 钉钉机器人webhook地址，用于推送短信到钉钉
+    'dingtalk_webhook' => 'https://oapi.dingtalk.com/robot/send?access_token=token'
 ];
